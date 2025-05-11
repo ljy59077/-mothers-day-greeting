@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>母亲节快乐</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&display=swap');
+        
+        body {
+            font-family: 'Ma Shan Zheng', cursive;
+            background: linear-gradient(135deg, #fff0f5, #ffe4e1);
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+        
+        .container {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            max-width: 700px;
+            position: relative;
+            overflow: hidden;
+            transform: scale(0.9);
+            opacity: 0;
+            animation: scaleIn 1s ease-out forwards;
+            z-index: 10;
+        }
+        
+        @keyframes scaleIn {
+            0% {
+                transform: scale(0.9);
+                opacity: 0;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+        
+        h1 {
+            color: #ff69b4;
+            margin-bottom: 25px;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            transform: translateY(-20px);
+            opacity: 0;
+            animation: slideDown 1s ease-out 0.5s forwards;
+        }
+        
+        @keyframes slideDown {
+            0% {
+                transform: translateY(-20px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        
+        p {
+            font-size: 1.3em;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 25px;
+            transform: translateY(20px);
+            opacity: 0;
+        }
+        
+        p:nth-child(2) {
+            animation: slideUp 1s ease-out 1s forwards;
+        }
+        
+        p:nth-child(3) {
+            animation: slideUp 1s ease-out 1.3s forwards;
+        }
+        
+        p:nth-child(4) {
+            animation: slideUp 1s ease-out 1.6s forwards;
+        }
+        
+        @keyframes slideUp {
+            0% {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        
+        .heart {
+            position: absolute;
+            font-size: 24px;
+            color: #ff69b4;
+            animation: float 5s ease-in-out infinite;
+            opacity: 0;
+            z-index: 5;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg) scale(0.5);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-500px) rotate(360deg) scale(0.5);
+                opacity: 0;
+            }
+        }
+        
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        button {
+            background-color: #ff69b4;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.1em;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: 'Ma Shan Zheng', cursive;
+            box-shadow: 0 5px 15px rgba(255, 105, 180, 0.3);
+            transform: scale(0.9);
+            opacity: 0;
+            animation: popIn 0.5s ease-out 2s forwards;
+        }
+        
+        @keyframes popIn {
+            0% {
+                transform: scale(0.9);
+                opacity: 0;
+            }
+            70% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+        
+        button:hover {
+            background-color: #ff1493;
+            transform: scale(1.05) !important;
+            box-shadow: 0 8px 20px rgba(255, 20, 147, 0.4);
+        }
+        
+        .flowers {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .floating-text {
+            position: absolute;
+            font-size: 1.2em;
+            color: #ff69b4;
+            animation: floatText 15s linear infinite;
+            opacity: 0;
+            z-index: 2;
+        }
+        
+        @keyframes floatText {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) rotate(5deg);
+                opacity: 0;
+            }
+        }
+        
+        .photo-frame {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background-color: #fff;
+            margin: 0 auto 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            border: 5px solid #ff69b4;
+            transform: scale(0);
+            animation: photoPop 1s ease-out 0.8s forwards;
+        }
+        
+        @keyframes photoPop {
+            0% {
+                transform: scale(0);
+            }
+            70% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        
+        .photo-placeholder {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #ffb6c1, #ff69b4);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 1.5em;
+        }
+        
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #f00;
+            opacity: 0;
+            z-index: 100;
+        }
+    </style>
+</head>
+<body>
+    <div class="flowers" id="flowers"></div>
+    
+    <div class="container">
+        <div class="photo-frame">
+            <img src="微信图片_20250511113553.jpg" alt="妈妈的照片" style="width:100%; height:100%; object-fit:cover;">
+        </div>
+        
+        <h1>亲爱的妈妈，母亲节快乐！</h1>
+        <p>感谢您无条件的爱与付出，您是我生命中最温暖的阳光。</p>
+        <p>愿您永远健康、快乐，每一天都充满幸福！</p>
+        <p>愿妈妈，岁岁安康，有盼有趣。我爱你！❤️</p>
+        
+        <div class="buttons">
+            <button id="moreHearts">送出爱心</button>
+            <button id="showConfetti">惊喜祝福</button>
+        </div>
+    </div>
+
+    <script>
+        // 爱心动画
+        document.getElementById('moreHearts').addEventListener('click', function() {
+            createHearts(60);
+        });
+        
+        // 祝福语动画
+        const messages = [
+            "妈妈辛苦了！", 
+            "您是世界上最好的妈妈！",
+            "感谢您的养育之恩",
+            "像朵蔷薇一样永远盛开",
+            "愿您永远健康幸福",
+            "我爱你！",
+            "您是我的骄傲",
+            "母亲节快乐！"
+        ];
+        
+        function createHearts(count) {
+            for (let i = 0; i < count; i++) {
+                setTimeout(() => {
+                    const heart = document.createElement('div');
+                    heart.className = 'heart';
+                    heart.innerHTML = '❤️','💖','💕','💝';
+                    heart.style.left = Math.random() * 100 + 'vw';
+                    heart.style.animationDuration = (Math.random() * 3 + 3) + 's';
+                    document.body.appendChild(heart);
+                    
+                    // 移除爱心元素以避免内存泄漏
+                    setTimeout(() => {
+                        heart.remove();
+                    }, 5000);
+                }, i * 100);
+            }
+            
+            // 同时创建浮动文字
+            for (let i = 0; i < 5; i++) {
+                setTimeout(() => {
+                    const text = document.createElement('div');
+                    text.className = 'floating-text';
+                    text.textContent = messages[Math.floor(Math.random() * messages.length)];
+                    text.style.left = Math.random() * 70 + 15 + 'vw';
+                    text.style.animationDuration = (Math.random() * 5 + 10) + 's';
+                    text.style.fontSize = (Math.random() * 10 + 16) + 'px';
+                    text.style.color = `hsl(${Math.random() * 60 + 330}, 100%, 65%)`;
+                    document.body.appendChild(text);
+                    
+                    setTimeout(() => {
+                        text.remove();
+                    }, 15000);
+                }, i * 500);
+            }
+        }
+        
+        // 创建花朵背景
+        function createFlowers() {
+            const flowersContainer = document.getElementById('flowers');
+            const flowerSymbols = ['🌸', '🌺', '🌷', '🌹', '💐', '🌻', '🌼', '🏵️'];
+            
+            for (let i = 0; i < 30; i++) {
+                const flower = document.createElement('div');
+                flower.style.position = 'absolute';
+                flower.style.fontSize = (Math.random() * 40 + 20) + 'px';
+                flower.style.left = Math.random() * 100 + 'vw';
+                flower.style.top = Math.random() * 100 + 'vh';
+                flower.style.opacity = Math.random() * 0.7 + 0.3;
+                flower.style.transform = `rotate(${Math.random() * 360}deg) scale(${Math.random() * 0.7 + 0.5})`;
+                flower.style.animation = `sway ${Math.random() * 5 + 5}s ease-in-out infinite alternate`;
+                flower.innerHTML = flowerSymbols[Math.floor(Math.random() * flowerSymbols.length)];
+                flowersContainer.appendChild(flower);
+            }
+            
+            // 添加摇摆动画
+            const style = document.createElement('style');
+            style.innerHTML = `
+                @keyframes sway {
+                    0% {
+                        transform: rotate(-5deg) scale(1);
+                    }
+                    100% {
+                        transform: rotate(5deg) scale(1.1);
+                    }
+                }
+            `;
+            document.head.appendChild(style);
+        }
+        
+        // 彩色纸屑效果
+        document.getElementById('showConfetti').addEventListener('click', function() {
+            createConfetti();
+            
+            // 容器跳动效果
+            const container = document.querySelector('.container');
+            container.style.animation = 'none';
+            setTimeout(() => {
+                container.style.animation = 'jump 0.5s ease';
+            }, 10);
+            
+            // 添加跳动动画
+            const style = document.createElement('style');
+            style.innerHTML = `
+                @keyframes jump {
+                    0% {
+                        transform: translateY(0);
+                    }
+                    50% {
+                        transform: translateY(-20px);
+                    }
+                    100% {
+                        transform: translateY(0);
+                    }
+                }
+            `;
+            document.head.appendChild(style);
+        });
+        
+        function createConfetti() {
+            const colors = ['#ff69b4', '#ff1493', '#ffb6c1', '#ffa07a', '#ff8c00', '#ffd700', '#98fb98', '#87cefa'];
+            
+            for (let i = 0; i < 150; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    confetti.className = 'confetti';
+                    confetti.style.left = Math.random() * 100 + 'vw';
+                    confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                    confetti.style.opacity = Math.random() * 0.8 + 0.2;
+                    confetti.style.width = Math.random() * 15 + 5 + 'px';
+                    confetti.style.height = Math.random() * 15 + 5 + 'px';
+                    confetti.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
+                    confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
+                    
+                    // 随机形状
+                    if (Math.random() > 0.8) {
+                        confetti.innerHTML = '💖';
+                        confetti.style.fontSize = '20px';
+                        confetti.style.backgroundColor = 'transparent';
+                    }
+                    
+                    document.body.appendChild(confetti);
+                    
+                    // 动画
+                    const angle = Math.random() * 360;
+                    const velocity = Math.random() * 10 + 5;
+                    const rotation = Math.random() * 360;
+                    const rotationSpeed = Math.random() * 10 + 5;
+                    
+                    let posX = Math.random() * window.innerWidth;
+                    let posY = -20;
+                    let opacity = 1;
+                    
+                    const animate = () => {
+                        posX += Math.cos(angle * Math.PI / 180) * 0.5;
+                        posY += velocity * 0.1;
+                        rotation += rotationSpeed;
+                        opacity -= 0.005;
+                        
+                        confetti.style.left = posX + 'px';
+                        confetti.style.top = posY + 'px';
+                        confetti.style.transform = `rotate(${rotation}deg)`;
+                        confetti.style.opacity = opacity;
+                        
+                        if (posY < window.innerHeight && opacity > 0) {
+                            requestAnimationFrame(animate);
+                        } else {
+                            confetti.remove();
+                        }
+                    };
+                    
+                    requestAnimationFrame(animate);
+                }, i * 20);
+            }
+        }
+        
+        // 初始加载时创建一些爱心和花朵
+        window.onload = function() {
+            createHearts(8);
+            createFlowers();
+            
+            // 自动浮动一些祝福语
+            setInterval(() => {
+                if (Math.random() > 0.6) {
+                    const text = document.createElement('div');
+                    text.className = 'floating-text';
+                    text.textContent = messages[Math.floor(Math.random() * messages.length)];
+                    text.style.left = Math.random() * 70 + 15 + 'vw';
+                    text.style.animationDuration = (Math.random() * 5 + 10) + 's';
+                    text.style.fontSize = (Math.random() * 10 + 16) + 'px';
+                    text.style.color = `hsl(${Math.random() * 60 + 330}, 100%, 65%)`;
+                    document.body.appendChild(text);
+                    
+                    setTimeout(() => {
+                        text.remove();
+                    }, 15000);
+                }
+            }, 3000);
+        };
+    </script>
+</body>
+</html>
